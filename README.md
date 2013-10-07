@@ -57,3 +57,8 @@ ngInfiniteScroll uses Testacular for its unit tests. Note that you will need [Ph
 
  * `grunt test` - continually watch for changes and run tests in PhantomJS and Chrome
  * `npm test` - run tests once in PhantomJS only
+
+Changes
+-------
+
+Added support for bower  
