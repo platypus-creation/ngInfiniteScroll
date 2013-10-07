@@ -1,10 +1,14 @@
 {
-  "name": "ng-infinite-scroll",
+  "name": "ngInfiniteScroll",
   "version": "1.0.0",
-  "main": ["build/ng-infinite-scroll.min.js"],
-  "ignore":["components", "src", "test"],
-  "dependencies": {
-    "jquery": "*",
-    "angular": "*"
-  }
+  "homepage": "https://github.com/platypus-creation/ngInfiniteScroll",
+  "description": "Angular infinite scroll directive",
+  "main": "build/ng-infinite-scroll.min.js",
+  "keywords": [
+    "infinite",
+    "scroll",
+    "angular",
+    "directive"
+  ],
+  "license": "MIT"
 }
