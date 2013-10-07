@@ -58,6 +58,7 @@ mod.directive 'infiniteScroll', ['$rootScope', '$window', '$timeout', ($rootScop
         checkWhenEnabled = true
 
     $scrollParent.on 'scroll', handler
+    handler()
     scope.$on '$destroy', ->
       $scrollParent.off 'scroll', handler
 

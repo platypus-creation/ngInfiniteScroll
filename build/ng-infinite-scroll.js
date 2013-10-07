@@ -1,4 +1,4 @@
-/* ng-infinite-scroll - v1.0.0 - 2013-09-14 */
+/* ng-infinite-scroll - v1.0.0 - 2013-10-07 */
 var mod;
 
 mod = angular.module('infinite-scroll', []);
@@ -50,6 +50,7 @@ mod.directive('infiniteScroll', [
           }
         };
         $scrollParent.on('scroll', handler);
+        handler();
         scope.$on('$destroy', function() {
           return $scrollParent.off('scroll', handler);
         });
