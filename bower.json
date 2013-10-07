@@ -1,0 +1,10 @@
+{
+  "name": "ng-infinite-scroll",
+  "version": "1.0.0",
+  "main": ["build/ng-infinite-scroll.min.js"],
+  "ignore":["components", "src", "test"],
+  "dependencies": {
+    "jquery": "*",
+    "angular": "*"
+  }
+}
