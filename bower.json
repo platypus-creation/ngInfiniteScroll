@@ -1,6 +1,6 @@
 {
   "name": "ngInfiniteScroll",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/platypus-creation/ngInfiniteScroll",
   "description": "Angular infinite scroll directive",
   "main": "build/ng-infinite-scroll.min.js",
