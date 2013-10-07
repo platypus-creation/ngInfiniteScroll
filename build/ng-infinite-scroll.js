@@ -18,7 +18,7 @@ mod.directive('infiniteScroll', [
         scrollDistance = 0;
         if (attrs.infiniteScrollDistance != null) {
           scope.$watch(attrs.infiniteScrollDistance, function(value) {
-            return scrollDistance = parseInt(value, 10);
+            return scrollDistance = parseFloat(value, 10);
           });
         }
         scrollEnabled = true;
@@ -38,7 +38,7 @@ mod.directive('infiniteScroll', [
           elementBottom = elementTop + elem.height();
           scrollBottom = $scrollParent.height() + $scrollParent.scrollTop();
           remaining = elementBottom - scrollBottom;
-          shouldScroll = remaining <= $scrollParent.height() * scrollDistance;
+          shouldScroll = remaining <= ($scrollParent.height() * scrollDistance);
           if (shouldScroll && scrollEnabled) {
             if ($rootScope.$$phase) {
               return scope.$eval(attrs.infiniteScroll);
