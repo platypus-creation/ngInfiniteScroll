@@ -1,4 +1,4 @@
-/* ng-infinite-scroll - v1.0.0 - 2013-10-07 */
+/* ng-infinite-scroll - v1.0.3 - 2013-10-07 */
 var mod;
 
 mod = angular.module('infinite-scroll', []);
@@ -15,6 +15,11 @@ mod.directive('infiniteScroll', [
         if ($scrollParent.length === 0) {
           $scrollParent = $window;
         }
+        
+        if (attrs.infiniteScrollSelf != null) {
+            $scrollParent = elem;
+        }
+        
         scrollDistance = 0;
         if (attrs.infiniteScrollDistance != null) {
           scope.$watch(attrs.infiniteScrollDistance, function(value) {
@@ -35,10 +40,21 @@ mod.directive('infiniteScroll', [
         elementTop = elem.position().top;
         handler = function() {
           var elementBottom, remaining, scrollBottom, shouldScroll;
-          elementBottom = elementTop + elem.height();
-          scrollBottom = $scrollParent.height() + $scrollParent.scrollTop();
-          remaining = elementBottom - scrollBottom;
-          shouldScroll = remaining <= ($scrollParent.height() * scrollDistance);
+          
+          if(elem == $scrollParent) {
+              // elementBottom = elementTop + elem.height();
+              // scrollBottom = $scrollParent.height() + $scrollParent.scrollTop();
+              // remaining = elementBottom - scrollBottom;
+              
+              remaining = elem[0].scrollHeight - elem.scrollTop() - elem.height();
+              
+              shouldScroll = remaining <= (elem[0].scrollHeight * scrollDistance);
+          } else {
+              elementBottom = elementTop + elem.height();
+              scrollBottom = $scrollParent.height() + $scrollParent.scrollTop();
+              remaining = elementBottom - scrollBottom;
+              shouldScroll = remaining <= ($scrollParent.height() * scrollDistance);
+          }
           if (shouldScroll && scrollEnabled) {
             if ($rootScope.$$phase) {
               return scope.$eval(attrs.infiniteScroll);
